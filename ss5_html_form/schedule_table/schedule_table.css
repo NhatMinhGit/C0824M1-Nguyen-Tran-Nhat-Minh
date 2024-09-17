@@ -13,3 +13,10 @@ th {
     background-color: #4CAF50;
     color: white;
 }
+h1 {
+    text-align: center;
+    font-family: 'Patua One', cursive;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(87, 87, 158);
+}
