@@ -1,0 +1,21 @@
+h1{
+    font-size: 2em;
+    width: 100%;
+    padding: 10px;
+    background-color: #d18137;
+    color: white;
+    text-align: center;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: lightyellow;
+    text-align: center;
+}
+.radio-container{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}

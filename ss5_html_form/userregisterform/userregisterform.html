@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <link rel="stylesheet" href="userregisterform.css">
 </head>
 <body>
-    <h1>Mô tả</h1>
-    <p>Tạo một form đăng ký người dùng với giao diện như sau:</p>
-    
+    <h1>Sở thích của bạn</h1>
     <form action="http://demo.codegym.vn/6/registration_form/register.php" method="POST">
         <label for="name">Họ và tên:</label><br>
         <input type="text" id="name" name="name" required><br><br>
@@ -20,10 +19,12 @@
         <input type="tel" id="phone" name="phone" required><br><br>
 
         <label>Giới tính:</label><br>
-        <input type="radio" id="male" name="gender" value="Nam" checked>
-        <label for="male">Nam</label><br>
-        <input type="radio" id="female" name="gender" value="Nữ">
-        <label for="female">Nữ</label><br><br>
+        <div class="radio-container">
+            <input type="radio" id="male" name="gender" value="Nam" checked>
+            <label for="male">Nam</label><br>
+            <input type="radio" id="female" name="gender" value="Nữ">
+            <label for="female">Nữ</label><br><br>
+        </div>
 
         <button type="submit">Đăng ký</button>
     </form>

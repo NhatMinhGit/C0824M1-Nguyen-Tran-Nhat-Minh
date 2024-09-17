@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Mô tả</h1>
+    <p>Tạo một form đăng ký người dùng với giao diện như sau:</p>
+    
+    <form action="http://demo.codegym.vn/6/registration_form/register.php" method="POST">
+        <label for="name">Họ và tên </label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email </label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label>Sở thích </label><br>
+        <table>
+            <tr>
+                <td> 
+                    <input type="checkbox" name="Thể thao" id="sports" value="Thể thao">
+                    <label for="sports">Thể thao</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="Âm nhạc" id="music" value="Âm nhạc">
+                    <label for="music">Âm nhạc</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="Đọc sách" id="reading" value="Đọc sách">
+                    <label for="reading">Đọc sách</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="Lướt web" id="web surfing" value="Lướt web">
+                    <label for="web surfing">Lướt web</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="Chơi game" id="playing game" value="Chơi game">
+                    <label for="playing game">Chơi game</label><br>
+                </td>
+                <td>
+                    <input type="checkbox" name="Điện ảnh" id="movie" value="Điện ảnh">
+                    <label for="movie">Điện ảnh</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="Du lịch" id="travelling" value="Du lịch">
+                    <label for="travelling">Du lịch</label><br>
+                </td>
+            </tr>
+        </table>    
+        
+        <button type="submit">Gửi thông tin</button>
+        <button type="reset">Nhập lại</button>
+    </form>
+
+</body>
+</html>
