@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>Khai báo và sử dụng biến</title>
+    <meta charset="utf-8">
+    
+</head>
+<body>
+    <script>
+        let i = 10
+        let f = 20.5
+        let b = true
+        let s = 'Hà Nội'
+
+        document.write('i = ' + i)
+        document.write('<br/>')
+        document.write('f = ' + f)
+        document.write('<br/>')
+        document.write('b = ' + b)
+        document.write('<br/>')
+        document.write('s = ' + s)
+
+
+        let width = 20
+        let height = 10
+        let area = width * height
+        document.write('<br>Area = ' + area)
+        //Dùng hàm prompt() để nhập 2 số từ bàn phím, lưu vào 2 biến là n và m. Kiểm tra xem a có phải là bội số của
+        //m hay không (tức là n có chia hết cho m hay không). 
+        //Hiển thị kết quả ra màn hình bằng cách sử dụng hàm alert().
+        let n = prompt('Enter n:')
+        let m = prompt('Enter m:')
+        if (n % m == 0) {
+            alert(n + ' is a multiple of ' + m)
+        } else {
+            alert(n + ' is NOT a multiple of ' + m)
+        }
+</script>
+</body>
+</html>
