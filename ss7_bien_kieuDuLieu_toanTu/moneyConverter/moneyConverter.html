@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Chuyển đổi tiền tệ</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Chuyển đổi tiền tệ</h1>
+    <form style="display: flex;">
+        <div>
+            <label for="amount">Nhập số tiền cần chuyển đổi:</label>
+            <input type="text" id="amount" name="amount">
+        </div>
+        <div>
+            <label for="from">Từ:</label>
+            <select id="from" name="from">
+                <option value="usd">USD</option>
+                <option value="vnd">VND</option>
+            </select>
+        </div>
+        <div>
+            <label for="to">Sang:</label>
+            <select id="to" name="to">
+                <option value="usd">USD</option>
+                <option value="vnd">VND</option>
+            </select>
+        </div>
+        <button type="button" onclick="chuyenDoiTien()">Chuyển đổi</button>
+    </form>
+    <br>
+    <p id="result" style="color: rgb(28, 165, 199);">result</p>
+    <script src="moneyConverter.js"></script>
+</body>
+</html>
