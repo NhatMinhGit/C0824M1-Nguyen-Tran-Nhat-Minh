@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Tính cước điện thoại cho
+        một hộ gia đình với các thông số đã cho -->
+        <script>
+            //  Tính cước điện thoại cho một hộ gia đình với các thông số đã cho
+            let minute = parseInt(prompt("Enter the number of minutes: "));
+            let fixedfee = 25000;
+            let fee = 0;
+            if (minute <= 50){
+            fee = fixedfee + minute * 600;
+            }
+            else if (minute <= 200 && minute >= 50){
+                fee = fixedfee + (minute - 50) * 400 + 50 * 200;
+            }
+            else if (minute >= 200){
+                fee = fixedfee + minute * 200;
+            }
+            document.write("Cước điện thoại của bạn là: " + fee);
+        </script>
+    </body>
+</html>

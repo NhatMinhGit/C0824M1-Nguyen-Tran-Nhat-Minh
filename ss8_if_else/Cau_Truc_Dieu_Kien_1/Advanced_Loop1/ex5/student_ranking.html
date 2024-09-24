@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        
+        <script>
+            let diemKT1 = parseInt(prompt("Enter điểm kiểm tra 1: "));
+            let diemKT2 = parseInt(prompt("Enter điểm kiểm tra 2: "));
+            let diemKT3 = parseInt(prompt("Enter điểm kiểm tra 3: "));
+            let dsDiemKT =[diemKT1, diemKT2, diemKT3];
+            let diemGK = parseInt(prompt("Enter điểm thi giữa kỳ : "));
+            let diemCK = parseInt(prompt("Enter điểm thi cuối kỳ : "));
+            // Tính điểm trung bình 
+            let diemTB = (diemKT1 + diemKT2 + diemKT3)/3;
+            // Tính điểm tổng kết
+            let diemTK = diemTB*0.3 + diemGK*0.3 + diemCK*0.4;
+            // Xếp loại
+            if (diemTK >= 8.5) {
+                document.write("Xếp loại A");
+            } else if (diemTK >= 7) {
+                document.write("GPA = "+ diemTK +"==> Xếp loại B");
+            } else if (diemTK >= 5.5) {
+                document.write("GPA = "+ diemTK +"==>Xếp loại C");
+            } else if (diemTK >= 4) {
+                document.write("GPA = "+ diemTK +"==>Xếp loại D");
+            } else {
+                document.write("GPA = "+ diemTK +"==>Xếp loại F");
+            } 
+        </script>
+    </body>
+</html>
