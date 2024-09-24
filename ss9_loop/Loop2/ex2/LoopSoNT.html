@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prime Numbers</title>
+</head>
+
+<body>
+    <h2>JavaScript Loops</h2>
+    <p id="demo"></p>
+    <script>
+        let numbers = parseInt(prompt("Enter the number of prime numbers you want to find: "));
+        // biến lưu các số nguyên tố
+        let primeNumbers = "";
+        let count = 0;
+        let N = 2;
+
+        // kiểm tra số nguyên tố
+        while (count < numbers) {
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(N); i++) {
+                if (N % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                primeNumbers += N + " ";
+                count++;
+            }
+            N++;
+        }
+
+        // Hiển thị kết quả
+        document.write("The first " + numbers + " prime numbers are: " + primeNumbers);
+    </script>
+</body>
+
+</html>
