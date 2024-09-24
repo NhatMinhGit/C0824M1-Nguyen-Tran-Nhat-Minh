@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Good, Cheap, Fast Toggle (2 out of 3)</title>
+  <style>
+    .checkbox-label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <label class="checkbox-label">
+    <input type="checkbox" id="good"> Good
+  </label>
+  <label class="checkbox-label">
+    <input type="checkbox" id="cheap"> Cheap
+  </label>
+  <label class="checkbox-label">
+    <input type="checkbox" id="fast"> Fast
+  </label>
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let selectedCheckboxes = []; // Mảng để lưu trữ các checkbox đã chọn
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const checkboxId = checkbox.id;
+
+        if (checkbox.checked) {
+          selectedCheckboxes.push(checkboxId); // Thêm vào mảng đã chọn
+
+          // Nếu số lượng checkbox đã chọn lớn hơn 2
+          if (selectedCheckboxes.length > 2) {
+            // Bỏ chọn checkbox cũ nhất
+            const oldestCheckboxId = selectedCheckboxes.shift(); // Lấy checkbox cũ nhất
+            document.getElementById(oldestCheckboxId).checked = false; // Bỏ chọn
+            alert('You can only select two options.'); // Thông báo cho người dùng
+          }
+        } else {
+          // Nếu checkbox bị bỏ chọn, loại bỏ khỏi mảng đã chọn
+          selectedCheckboxes = selectedCheckboxes.filter(id => id !== checkboxId);
+        }
+
+        console.log('Selected options:', selectedCheckboxes);
+      });
+    });
+  </script>
+</body>
+</html>
