@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>JavaScript Loops</h2>
+    <p id="demo"></p>
+  <script>
+    let sout, i, j;
+    sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    i = j = 1;
+    while (i <= 10) {
+        sout = sout + "<tr>";
+        while (j <= 10) {
+            sout = sout + "<td>" + i +"x"+ j + "=" + i * j + "</td>";
+            j++;
+        }
+        sout = sout + "</tr>";
+        j = 1;
+        i++;
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+  </script>
+</body>
+
+</html>
