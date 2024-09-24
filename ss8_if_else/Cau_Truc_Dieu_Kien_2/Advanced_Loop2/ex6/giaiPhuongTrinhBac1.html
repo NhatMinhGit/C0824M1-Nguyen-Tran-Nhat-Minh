@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Giải phương trình bậc 1. -->
+        <script>
+            let a = parseInt(prompt("Enter a: "));
+            let b = parseInt(prompt("Enter b: "));
+            if (a == 0) {
+                if (b == 0) {
+                    document.write("Phương trình có vô số nghiệm");
+                } else {
+                    document.write("Phương trình vô nghiệm");
+                }
+            } else {
+                let x = -b / a;
+                document.write("Nghiệm của phương trình là: " + x);
+            }
+        </script>
+    </body>
+</html>

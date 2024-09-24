@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Chương trình tính thuế thu nhập cá nhân. -->
+        <script>
+            let income = parseInt(prompt("Nhập vào thu nhập cá nhân: "));
+            let tax = 0;
+            if (income > 80000000) {
+                tax = income * 35 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else if (income > 52000000) {
+                tax = income * 30 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else if (income > 32000000) {
+                tax = income * 25 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else if (income > 18000000) {
+                tax = income * 20 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else if (income > 10000000) {
+                tax = income * 15 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else if (income > 5000000) {
+                tax = income * 10 / 100;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            } else {
+                tax = 0;
+                alert("Thuế thu nhập cá nhân của bạn là: " + tax);
+            }
+        </script>
+    </body>
+</html>

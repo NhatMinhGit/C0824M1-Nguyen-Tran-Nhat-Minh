@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Nhập vào số điện sử dụng, và tính tiền điện phải trả. -->
+        <script>
+            let soDien = parseInt(prompt("Nhập vào số điện sử dụng: "));
+            let tienDien = 0;
+            if (soDien <= 50) {
+                tienDien = soDien * 1000;
+            } else if (soDien <= 100) {
+                tienDien = 50 * 1000 + (soDien - 50) * 1200;
+            } else if (soDien <= 200) {
+                tienDien = 50 * 1000 + 50 * 1200 + (soDien - 100) * 1500;
+            } else {
+                tienDien = 50 * 1000 + 50 * 1200 + 100 * 1500 + (soDien - 200) * 2000;
+            }
+            document.write("Tiền điện phải trả là: " + tienDien);
+        </script>
+    </body>
+</html>

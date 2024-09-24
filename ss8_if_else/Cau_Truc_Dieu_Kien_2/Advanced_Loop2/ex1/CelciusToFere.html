@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Nhập vào một số đo nhiệt độ theo độ C, và chuyển đổi nó sang độ 
+        F. có sử dụng câu trúc if để chọn phương thức đổi nếu 1 thì nhập độ còn 2 thì nhập độ f-->
+        <script>
+            let choice = parseInt(prompt("Enter 1 to convert from Celcius to Fere, 2 to convert from Fere to Celcius: "));
+            let temp = parseInt(prompt("Enter the temperature: "));
+            let result = 0;
+            if (choice == 1) {
+                result = temp * 9/5 + 32;
+                document.write("The temperature in Fere is: " + result);
+            } else if (choice == 2) {
+                result = (temp - 32) * 5/9;
+                document.write("The temperature in Celcius is: " + result);
+            } else {
+                document.write("Invalid choice");
+            }
+        </script>
+    </body>
+</html>

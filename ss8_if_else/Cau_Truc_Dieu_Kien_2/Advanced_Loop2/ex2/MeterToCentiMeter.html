@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Nhập vào số mét, chuyển đổi sang đơn vị centimet.
+        chọn phương thức 
+        1. Là nhập mét sang centi mét
+        2. Là nhập centi mét sang mét -->
+        <script>
+            let choice = parseInt(prompt("Enter 1 to convert from Meter to Centimeter, 2 to convert from Centimeter to Meter: "));
+            let length = parseInt(prompt("Enter the length: "));
+            let result = 0;
+            if (choice == 1) {
+                result = length * 100;
+                document.write("The length in Centimeter is: " + result);
+            } else if (choice == 2) {
+                result = length / 100;
+                document.write("The length in Meter is: " + result);
+            } else {
+                document.write("Invalid choice");
+            }
+        </script>
+    </body>
+</html>

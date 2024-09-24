@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Nhập vào 3 cạnh của hình tam giác, và tính diện tích của hình tam giác đó. -->
+        <script>
+            let a = parseInt(prompt("Nhập vào cạnh thứ nhất của hình tam giác: "));
+            let b = parseInt(prompt("Nhập vào cạnh thứ hai của hình tam giác: "));
+            let c = parseInt(prompt("Nhập vào cạnh thứ ba của hình tam giác: "));
+            let p = (a + b + c) / 2;
+            let s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            document.write("Diện tích của hình tam giác là: " + s);
+        </script>
+    </body>
+</html>

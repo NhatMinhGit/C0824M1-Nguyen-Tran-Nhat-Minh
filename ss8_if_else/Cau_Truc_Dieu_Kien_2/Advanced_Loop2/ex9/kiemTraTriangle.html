@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!-- Nhập vào 3 cạnh của tam giác, và kiểm tra xem đó có phải là tam giác không. -->
+        <script>
+            let a = parseInt(prompt("Nhập vào cạnh thứ nhất của tam giác: "));
+            let b = parseInt(prompt("Nhập vào cạnh thứ hai của tam giác: "));
+            let c = parseInt(prompt("Nhập vào cạnh thứ ba của tam giác: "));
+            if (a + b > c && a + c > b && b + c > a) {
+                document.write("Đây là tam giác");
+            } else {
+                document.write("Đây không phải là tam giác");
+            }
+        </script>
+    </body>
+</html>
