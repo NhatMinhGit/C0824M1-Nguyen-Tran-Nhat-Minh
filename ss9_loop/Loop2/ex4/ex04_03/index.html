@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //tam giác vuông cân 
+            let n = parseInt(prompt("Nhập vào chiều cao của tam giác vuông cân: "));
+            for (let i = 1; i <= n; i++) {
+                for (let k = 1; k <= i; k++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+            for (let i = n; i >= 1; i--) {
+                for (let k = 1; k <= i; k++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+
+            // reversed 
+            for (let i = 1; i <= n; i++) {
+                for (let k = 1; k <= n - i; k++) {
+                    document.write("&nbsp;&nbsp;");
+                }
+                for (let j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+            for (let i = n; i >= 1; i--) {
+                for (let h = 1; h <= n - i; h++) {
+                    document.write("&nbsp;&nbsp;");
+                }
+                for (let k = 1; k <= i; k++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+
+        </script>
+    </body>
+</html>

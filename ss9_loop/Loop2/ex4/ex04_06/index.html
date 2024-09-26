@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <pre id="heart"></pre>
+        <script>
+            let heart = "";
+            let size = 10; // Change size to adjust heart shape
+        
+            // Loop to generate the upper part of the heart
+            for (let i = size / 2; i <= size; i += 2) {
+                for (let j = 1; j < size - i; j += 2) {
+                    heart += " ";
+                }
+                for (let j = 1; j <= i; j++) {
+                    heart += "*";
+                }
+                for (let j = 1; j <= size - i; j++) {
+                    heart += " ";
+                }
+                for (let j = 1; j <= i; j++) {
+                    heart += "*";
+                }
+                heart += "\n";
+            }
+
+            // Loop to generate the lower part of the heart
+            for (let i = size; i >= 1; i--) {
+                for (let j = i; j < size; j++) {
+                    heart += " ";
+                }
+                for (let j = 1; j <= (i * 2) - 1; j++) {
+                    heart += "*";
+                }
+                heart += "\n";
+            }
+
+        // Display the heart shape in the <pre> tag
+        document.getElementById("heart").textContent = heart;
+        </script>
+    </body>
+</html>

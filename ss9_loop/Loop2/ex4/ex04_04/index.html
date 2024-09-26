@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //hình chữ nhật rỗng
+            let n = parseInt(prompt("Nhập vào chiều ngang: "));
+            let m = parseInt(prompt("Nhập vào chiều dọc: "));
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= m; j++) {
+                    if (i == 1 || i == n || j == 1 || j == m) {
+                        document.write("*");
+                    } else {
+                        document.write("&nbsp;&nbsp;"); // in khoảng trắng nếu không phải i ,j ( giá trị thay đổi của n,m khi lặp)
+                    }
+                }
+                document.write("<br>");
+            }
+        </script>
+    </body>
+</html>
