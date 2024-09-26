@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //Hiển thị ra 20 số trong dãy fibonacci đầu tiên.
+            let n = parseInt(prompt("Nhập vào số lượng số trong dãy fibonacci: "));
+            let a = 0;
+            let b = 1;
+            let c;
+            let count = 1;
+            document.write(a + "<br>");
+            document.write(b + "<br>");
+            for (let i = 3; i <= n; i++) {
+                c = a + b;
+                document.write("Số fibo lần "+ count +":"+c + "<br>");
+                a = b;
+                b = c;
+                count++;
+            }
+        </script>
+    </body>
+</html>

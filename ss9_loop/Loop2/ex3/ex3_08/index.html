@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            for (let i = 0; i <= 100; i++) {
+                let min = parseInt(prompt("Nhập vào min"));
+                let max = parseInt(prompt("Nhập vào max"));
+                if(min < max && max-min <= 20){
+                    let guestNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+                    let yourNumber = parseInt(prompt("Nhập vào số của bạn"));
+                    for (let j = 0; j < 3; j++) {
+                        if (yourNumber == guestNumber) {
+                            alert("Chúc mừng bạn đã đoán đúng");
+                            break;
+                        } else if (j == 2) {
+                            alert("Bạn đã hết lượt đoán");
+                            break;
+                        }
+                        else{
+                            yourNumber = parseInt(prompt("Nhập lại số của bạn"));
+                            
+                        }
+                    }
+                } else {
+                    alert("Nhập lại min và max và khoảng cách giữa chúng chỉ <= 20");
+                }
+            }
+            
+        </script>
+    </body>
+</html>

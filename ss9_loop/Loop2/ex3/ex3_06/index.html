@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //Hiển thị ra tổng của n số chia hết cho 7.
+            let n = parseInt(prompt("Nhập vào số lượng số chia hết cho 7: "));
+            let count = 0;
+            let total = 0;
+            for (let i = 0; count <= n;i++) {
+                if(i % 7 ==0){
+                    total += i;
+                    document.write(i + "<br>");
+                    count++;
+                }
+            }
+            document.write("Tổng "+ n +" số đầu tiên chia hết cho 7 là: " + total);
+        </script>
+    </body>
+</html>

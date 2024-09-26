@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+            let n = 100;
+            let a = 0;
+            let b = 1;
+            let c;
+            let count = 1;
+            document.write("Số lượng dãy fibonacci:"+ n +" <br>");
+            document.write(a + "<br>");
+            document.write(b + "<br>");
+            for (let i = 3; i <= n; i++) {
+                c = a + b;
+                if (c % 5 === 0) {
+                    document.write("Số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + c);
+                    break;
+                }
+                a = b;
+                b = c;
+                count++;
+            }
+        </script>
+    </body>
+</html>
