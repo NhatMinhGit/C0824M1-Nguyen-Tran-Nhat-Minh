@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let x = prompt("Enter a string : ");
+            let arr = "";
+            for (let i = 0; i < x.length; i++) {
+                kyTu = x[i];
+                if (kyTu === kyTu.toUpperCase()) {
+                    arr += kyTu.toLowerCase();
+                }else if(kyTu === kyTu.toLowerCase()){
+                    arr += kyTu.toUpperCase();
+                }else{
+                    arr += kyTu;
+                }
+            }
+            document.write(arr);
+        </script>
+    </body>
+</html>

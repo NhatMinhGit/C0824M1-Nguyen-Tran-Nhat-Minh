@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let x = prompt("Enter a string of numbers : ");
+            for (let i = 0; i < x.length; i++) {
+                if (x[i] % 2 == 0 &&x[i+1] % 2 == 0) {
+                    x = x.slice(0, i+1) + "-" + x.slice(i+1);
+                }
+            }
+            document.write(x);
+        </script>
+    </body>
+</html>
