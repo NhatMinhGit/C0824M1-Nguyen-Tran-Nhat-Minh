@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="output"></p> <!-- Vùng để hiển thị ký tự -->
+
+        <script>
+            let text = "Hello Puff Daddy!!!"; // Chuỗi để hiển thị ký tự lần lượt
+            let index = 0; // Biến đếm vị trí ký tự
+
+            // Lắng nghe sự kiện nhấn phím
+            document.addEventListener("keydown", function(event) {
+                if (index < text.length) {
+                    document.getElementById('output').innerHTML += text[index]; // Thêm ký tự vào output
+                    index++; // Tăng vị trí để hiển thị ký tự tiếp theo
+                }
+            });
+        </script>
+    </body>
+</html>

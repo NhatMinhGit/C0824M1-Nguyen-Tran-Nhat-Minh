@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let arr =  [ 'c', 's', 'c', '2', '6', '1' ];
+            document.write("Mảng ban đầu: " + arr + "<br>");
+            let result = "";
+            for (let i = 0; i < arr.length/2; i++) {
+                let temp = arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length - 1 - i] = temp;
+            }
+            result = arr;
+            document.write("Mảng sau khi đảo : " + result);  
+        </script>
+    </body>
+</html>

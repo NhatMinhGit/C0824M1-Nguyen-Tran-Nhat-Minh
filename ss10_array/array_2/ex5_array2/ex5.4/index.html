@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let arr = [11, 3, 13, 24, 15, 6, 7, 98, 9, 10];
+            let result = "";
+            let newArr = arr;
+            document.write("Mảng ban đầu: " + newArr + "<br>");
+            //reverse array
+            for (let i = 0; i < arr.length / 2; i++) {
+                let temp = arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length - 1 - i] = temp;
+            }
+            result = arr;
+            document.write("Mảng sau khi đảo : " + result);
+        </script>
+    </body>
+</html>

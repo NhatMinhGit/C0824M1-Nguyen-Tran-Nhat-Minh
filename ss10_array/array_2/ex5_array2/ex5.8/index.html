@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let arr = [11, 3, 13, 24, 15, 6, 7, 98, 9, 10];
+            let result = "";
+            let newArr = arr;
+            document.write("Mảng ban đầu: " + newArr + "<br>");
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] < arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            result = arr;
+            document.write("Mảng sau khi sắp xếp giảm dần : " + result);
+        </script>
+    </body>
+</html>

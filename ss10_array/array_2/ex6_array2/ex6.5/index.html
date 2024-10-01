@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let n = prompt("Nhập số lượng mảng 1 : ");
+            let arr1 = [];
+            for (let i = 0; i < n; i++) {
+                arr1[i] = prompt("Nhập phần tử thứ " + i + " của mảng 1 : ");
+            }
+            let arr2 = [];
+            for (let i = 0; i < n; i++) {
+                arr2[i] = prompt("Nhập phần tử thứ " + i + " của mảng 2 : ");
+            }
+            for (let i = 0; i < n; i++) {
+                if (arr1[i] != arr2[i]) {
+                    document.write("Mảng 1 và mảng 2 không giống nhau");
+                    break;
+                } else {
+                    document.write("Mảng 1 và mảng 2 giống nhau");
+                    break;
+                }
+            }
+        </script>
+    </body>
+</html>

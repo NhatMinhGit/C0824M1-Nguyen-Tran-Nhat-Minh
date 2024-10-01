@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let arr = [11, 3, 13, 24, 15, 6, 7, 98, 9, 10];
+            let result = "";
+            let biggest = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > biggest) {
+                    biggest = arr[i];
+                }
+            }
+            result = biggest;
+            document.write("Phần tử lớn nhất trong mảng : " + result);
+        </script>
+    </body>
+</html>

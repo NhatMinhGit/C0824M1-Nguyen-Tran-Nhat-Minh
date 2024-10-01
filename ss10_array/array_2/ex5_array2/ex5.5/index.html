@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let arr = [11, 3, 13, 24, 15, 6, 7, 98, 9, 10];
+            let result = "";
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    result = arr[i] + " "; 
+                    count++;
+                }
+            }
+            document.write("Có " + count + " phần tử âm trong mảng : " + result);  
+        </script>
+    </body>
+</html>
