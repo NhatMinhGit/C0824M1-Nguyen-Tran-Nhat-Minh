@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Quản lý sản phẩm</h1>
+
+    <div>
+        <label for="id">ID sản phẩm:</label>
+        <input type="number" id="id" placeholder="Nhập ID sản phẩm">
+        <br><br>
+        <label for="name">Tên sản phẩm:</label>
+        <input type="text" id="name" placeholder="Nhập tên sản phẩm">
+        <br><br>
+        <button onclick="addProduct()">Thêm sản phẩm</button>
+        <button onclick="editProduct()">Sửa sản phẩm</button>
+        <button onclick="deleteProduct()">Xóa sản phẩm</button>
+    </div>
+
+    <h2>Danh sách sản phẩm</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+            </tr>
+        </thead>
+        <tbody id="product-list">
+        </tbody>
+    </table>
+</body>
+</html>
