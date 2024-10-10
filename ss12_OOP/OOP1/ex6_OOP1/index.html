@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>//Mobile
+            function Mobile(name) {
+                this.name = name;
+                this.battery = 100;
+                this.state = "on";
+                this.inbox = [];
+                this.outbox = [];
+                
+                this.writeMessage = function(message) {//viết tin nhắn
+                    if(this.state == "on" && this.battery > 0){
+                        this.outbox.push(message + " :send by " + this.name);
+                        this.battery--;
+                    }else{
+                        alert("Điện thoại đang tắt");
+                    }
+                    
+                }
+                this.receiveMessage = function(mobile) {//nhạn tin nhắn
+                    if(this.state == "on" && this.battery > 0){
+                        this.inbox.push(mobile.outbox.pop());
+                        this.battery--;//mất 1% pin khi nhận tin nhắn
+                    }else{
+                        alert("Điện thoại đang tắt");
+                    }
+                }
+                this.getInbox = function() {//xem tin nhắn trong hộp thư đến
+                    if(this.state == "on" && this.battery > 0){
+                        return this.inbox;
+                    }else{
+                        alert("Điện thoại đang tắt");
+                    }
+                }
+                this.getOutbox = function() {//xem tin nhắn trong hộp thư đi
+                    if(this.state == "on" && this.battery > 0){
+                        return this.outbox;
+                    }else{
+                        alert("Điện thoại đang tắt");
+                    }
+                }
+                this.getBattery = function() {//xem pin
+                    return this.battery;
+                }
+                this.chargeBattery = function() {//sạc pin
+                    this.battery = 100;
+                }
+                this.getState = function(){//trả về trạng thái
+                    return this.state;
+                }
+                this.setState = function(state){
+                    return this.state = state;
+                }
+            }
+
+            let nokiaPhone = new Mobile("Nokia");
+            let iphonePhone = new Mobile("Iphone");
+    
+            nokiaPhone.writeMessage("Chào iphone");
+            alert("Nokia's inbox : \n"+nokiaPhone.getOutbox());
+
+            iphonePhone.receiveMessage(nokiaPhone);
+            alert("Iphone's outbox : \n"+iphonePhone.getInbox());
+        </script>
+
+    </body>
+</html>

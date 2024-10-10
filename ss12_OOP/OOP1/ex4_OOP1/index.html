@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+
+        <script>
+            function Rectangle(width, height){
+            this.width = width;
+            this.height = height;
+            this.getWidth = function(){
+                return this.width;
+            }
+            this.getHeight = function(){
+                return this.height;
+            }
+            this.getArea = function(){
+                return this.width * this.height;
+            }
+            this.getPerimeter = function(){
+                return (this.width + this.height) * 2;
+            }
+
+        }
+        let rectangle = new Rectangle(500, 300);
+        function getRandomHex(){
+                return Math.floor(Math.random()*255);
+        }
+        function getRandomColor(){
+                var red = getRandomHex();
+                var green = getRandomHex();
+                var blue = getRandomHex();
+                return "rgb(" + red + "," + blue + "," + green +")";
+        }
+        function createRectangle(){
+                var ctx = document.getElementById("myCanvas").getContext("2d");
+                var color = getRandomColor();
+                ctx.fillStyle = color;
+                ctx.fillRect(10,10,rectangle.getWidth(), rectangle.getHeight());
+        }
+        createRectangle();
+        </script>
+    </body>
+</html>

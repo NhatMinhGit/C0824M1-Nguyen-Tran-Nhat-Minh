@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function Temperature(celsius){
+                this.celsius = celsius;
+                this.getCelsius = function(){
+                    return this.celsius;
+                }
+                this.getFahrenheit = function(){
+                    return this.celsius * 1.8 + 32;
+                }
+                this.getKelvin = function(){
+                    return this.celsius + 273.15;
+                }
+
+            }
+            let temperature = new Temperature(25);
+            alert("Celsius: " + temperature.getCelsius() + "\n" + "Fahrenheit: " + temperature.getFahrenheit() + "\n" + "Kelvin: " + temperature.getKelvin());
+            
+        </script>
+    </body>
+</html>

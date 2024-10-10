@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let Circle = function(radius) {
+
+            this.radius = radius;
+
+            this.getRadius = function() {
+            return radius;
+            }
+            this.getArea = function() {
+                return Math.PI * radius * radius;
+            }
+
+            };
+            let circle = new Circle(2);
+            let radius = circle.getRadius(); // 2
+            
+            let area = circle.getArea(); // 12.566370614359172 
+            alert("circle: "+"\n"+"radius: " + radius + "; area: " + area);
+
+            let circle1 = new Circle(4);
+            let radius1 = circle1.getRadius(); // 2
+            
+            let area1 = circle1.getArea(); // 12.566370614359172 
+            alert("circle 1: "+"\n"+"radius: " + radius1 + "; area: " + area1);
+        </script>
+    </body>
+</html>
