@@ -4,19 +4,21 @@
         <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
 
         <script>
-            function Rectangle(width, height){
-            this.width = width;
-            this.height = height;
-            this.getWidth = function(){
+            class Rectangle{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            getWidth(){
                 return this.width;
             }
-            this.getHeight = function(){
+            getHeight(){
                 return this.height;
             }
-            this.getArea = function(){
+            getArea(){
                 return this.width * this.height;
             }
-            this.getPerimeter = function(){
+            getPerimeter(){
                 return (this.width + this.height) * 2;
             }
 

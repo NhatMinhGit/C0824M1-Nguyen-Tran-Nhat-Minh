@@ -2,14 +2,16 @@
 <html>
     <body>
         <script>
-            let Circle = function(radius) {
+            class Circle{
 
-            this.radius = radius;
-
-            this.getRadius = function() {
-            return radius;
+            constructor(radius){
+                this.radius = radius;
             }
-            this.getArea = function() {
+
+            getRadius() {
+            return this.radius;
+            }
+            getArea(){
                 return Math.PI * radius * radius;
             }
 
