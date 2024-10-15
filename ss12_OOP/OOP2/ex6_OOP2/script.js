@@ -1,114 +1,82 @@
-class Remote{
-    constructor(tivi){
-        this.tivi = tivi;
+//Mouse
+class Rat{
+    constructor(name,weight,speed,status){
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
     }
-
-    chuyenKenh(kenhMoi) {
-        this.tivi.changeChanel(kenhMoi);
+    sound(){
+        console.log('Chít !!!');
     }
-
-    tangAmLuong() {
-        this.tivi.higherVolume();
-        console.log(`Âm lượng : ${this.tivi.volume}`);
-    }
-
-    giamAmLuong() {
-        this.tivi.lowerVolume();
-        console.log(`Âm lượng : ${this.tivi.volume}`);
-    }
-
-    batTivi() {
-        this.tivi.turnOn();
-    }
-
-    tatTivi() {
-        this.tivi.turnOff();
-    }
-
-
 }
 
-class Tivi{
-    constructor(chanel,volume,status) {
-        this._chanel = chanel;
-        this._volume = volume;
-        this._status = status;
+class Cat{
+    constructor(name,weight,speed){
+        this._name = name;
+        this._weight = weight;
+        this._speed = speed;
     }
 
-
-    get chanel() {
-        return this._chanel;
+    get name() {
+        return this._name;
     }
 
-    set chanel(value) {
-        this._chanel = value;
+    set name(value) {
+        this._name = value;
     }
 
-    get volume() {
-        return this._volume;
+    get weight() {
+        return this._weight;
     }
 
-    set volume(value) {
-        this._volume = value;
+    set weight(value) {
+        this._weight = value;
     }
 
-    get status() {
-        return this._status;
+    get speed() {
+        return this._speed;
     }
 
-    set status(value) {
-        this._status = value;
+    set speed(value) {
+        this._speed = value;
     }
 
-    turnOn() {
-        this._status = true;
-        console.log("Tivi đã bật");
+    sound(){
+        console.log('Meo');
     }
 
-    turnOff() {
-        this._status = false;
-        console.log("Tivi đã tắt");
-    }
-    lowerVolume(){
-        if(this._status && this._volume > 0){
-            return this._volume--;
-        }else {
-            alert("Vui lòng bật tivi trước hoặc âm lượng đã giảm còn 0");
-        }
-    }
-    higherVolume(){
-        if(this._status && this._volume < 100){
-            return this._volume++;
-        }else {
-            alert("Vui lòng bật tivi trước hoặc âm lượng đã tăng tới 100");
+    catchRat(rat){
+        let count = 0;
+        if(this._speed > rat.speed && count < 1){
+            count++;
+            console.log(rat.name);
+            return true;
+        }else{
+            return false;
         }
     }
 
-    changeChanel(newChanel){
-        if(this._status){
-            this._chanel = newChanel;
-            console.log(`Đã chuyển sang kênh: ${newChanel}`);
-        }else {
-            alert("Vui lòng bật tivi trước");
+    eatRat(rat){
+        if(rat.status && this.catchRat(rat)) {
+            console.log(`Eat ${rat.name}`);
+            return this._weight+=rat.weight;
         }
     }
 }
 
-let tivi = new Tivi(1,80,true);
-let remote = new Remote(tivi);
+let rat1 = new Rat("Jerry",2,100,true);
+let rat2 = new Rat("John",1,1000,true);
+let rat3 = new Rat("Jue",5,100,false);
+let cat1 = new Cat("Tom",100,400);
+console.log(`${cat1.name} weight before :`+cat1.weight);
 
-// Bật tivi
-remote.batTivi();
+cat1.catchRat(rat1);
+cat1.catchRat(rat2);
+cat1.catchRat(rat3);
 
-// Chuyển đến kênh 7
-remote.chuyenKenh(7);
+cat1.eatRat(rat1);
+cat1.eatRat(rat2);
+cat1.eatRat(rat3);
 
-// Dùng remote chuyển đến kênh 3
-remote.chuyenKenh(3);
-
-// Tăng âm lượng lên 2 đơn vị
-remote.tangAmLuong();
-remote.tangAmLuong();
-
-// Dùng remote tắt tivi
-remote.tatTivi();
+console.log(`${cat1.name} weight after :`+cat1.weight);
