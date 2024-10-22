@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Razer</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+<header class="header">
+  <img alt="Logo razer" class="logo" src="razer-logo.png">
+  <nav>
+    <a href="#" class="cart-icon">
+      <img class="icon" src="../img/icons/user-icon.png">
+    </a>
+    <div class="dropdown-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="#" id="loginLink">Account</a></li>
+        <li><a href="login.html">Log In</a></li> <!-- This link redirects to the login page -->
+      </ul>
+    </div>
+  </nav>
+  <script src="../js/iconscript.js"></script>
+</header>
+
+<!-- Login Modal -->
+<div class="login-container">
+  <h1>SIGN IN</h1>
+  <form id="loginForm">
+    <label for="gmail">Gmail:</label>
+    <input type="text" id="gmail" name="gmail" required> <!-- Ensure this ID matches -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <br>
+    <button type="submit">Login</button>
+
+  </form>
+</div>
+
+
+
+<script src="../js/script.js"></script>
+<script src="../js/loginScript.js"></script>
+
+</body>
+</html>

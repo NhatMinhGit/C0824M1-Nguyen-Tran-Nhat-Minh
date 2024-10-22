@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    function drawPyramid(n) {
+      // Kiểm tra đầu vào
+      if (n <= 0) {
+        console.log("Chiều cao phải là số nguyên dương.");
+        return;
+      }
+
+      // Vòng lặp để in từng hàng
+      for (let i = 1; i <= n; i++) {
+        // Tạo một chuỗi rỗng để lưu trữ dấu *
+        let row = "";
+
+        // Vòng lặp lồng nhau để in các dấu * trong mỗi hàng
+        for (let j = 1; j <= n; j++) {
+          row += "*";
+
+        }
+
+        console.log(row);
+        row+="\n";
+      }
+    }
+
+    // Ví dụ: In ra hình tháp cao 5 tầng
+    drawPyramid(9);
+  </script>
+</body>
+</html>

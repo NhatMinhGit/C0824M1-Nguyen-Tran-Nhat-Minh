@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function getDaysInMonth(month, year) {
+    // Kiểm tra năm nhuận
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+    // Sử dụng switch-case để xác định số ngày
+    switch (month) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        return 31;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        return 30;
+      case 2:
+        return isLeapYear ? 29 : 28;
+      default:
+        return "Tháng không hợp lệ";
+    }
+  }
+
+  // Nhập liệu từ người dùng
+  const month = parseInt(prompt("Nhập tháng (1-12):"));
+  const year = parseInt(prompt("Nhập năm:"));
+
+  // Gọi hàm và in kết quả
+  const daysInMonth = getDaysInMonth(month, year);
+  console.log(`Tháng ${month} năm ${year} có ${daysInMonth} ngày.`);
+</script>
+
+</body>
+</html>
