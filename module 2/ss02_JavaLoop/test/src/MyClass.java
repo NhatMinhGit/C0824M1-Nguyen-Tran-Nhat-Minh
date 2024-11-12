@@ -1,11 +1,9 @@
-public class MyClass{
+public  class MyClass {
+    public String method(int a){}
 
-    static void method(){ }
+    method(int a){}
 
-    static void method(int x){ }
+    public method(int a){}
 
-    static void method(float x){ }
-
-    static void method(int x, double y){ }
-
+    String public method(int a){}
 }
