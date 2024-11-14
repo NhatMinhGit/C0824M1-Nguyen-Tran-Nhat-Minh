@@ -1,9 +1,18 @@
-public  class MyClass {
-    public String method(int a){}
+package com.poly
 
-    method(int a){}
+class MyClass1 {
+    public void method1() {…}
 
-    public method(int a){}
+    private void method2() {…}
 
-    String public method(int a){}
+    void method3() {…}
+}
+
+class MyClass2 {
+    void method() {
+        MyClass1 o1 = new MyClass1();
+        o1.method1();
+        o1.method2();
+        o1.method3();
+    }
 }
