@@ -5,6 +5,7 @@ import enums.Region;
 import enums.Religion;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Citizens {
@@ -18,8 +19,8 @@ public class Citizens {
     private Region originHomeTown;//Quê quán
     private String currentLivePlace;//Nơi ở hiện tại
     private String permanentAddress;//Thường trú
-    private List<Citizens> parents;
-    private List<Citizens> children;
+    private List<Citizens> parents = new ArrayList<>();
+    private List<Citizens> children = new ArrayList<>();
     private Citizens spouse;
     private IdCard idCard;
     //Hiện tại thì em mới làm cơ bản vầy thôi chứ nếu phát triển thêm để đúng với nghiệp vụ
