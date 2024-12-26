@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex_OnTapCuoiKi/ex_OnTapCuoiKi.iml" filepath="$PROJECT_DIR$/ex_OnTapCuoiKi/ex_OnTapCuoiKi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sss_LuyenTap.iml" filepath="$PROJECT_DIR$/.idea/sss_LuyenTap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test_module2/test_module2.iml" filepath="$PROJECT_DIR$/test_module2/test_module2.iml" />
+    </modules>
+  </component>
+</project>
