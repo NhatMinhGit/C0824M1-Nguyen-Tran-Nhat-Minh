@@ -98,63 +98,7 @@ public class Main {
             }
         }
     }
-    public static void menuIdCard() {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("---------Chương trình quản lý công dân------------");
-            System.out.println("1. Tạo thẻ định danh");
-            System.out.println("2. Hiển thị danh sách thẻ");
-            System.out.println("3. Xóa công dân");
-            System.out.println("4. Tìm kiếm thẻ định danh theo mã ID");
-            System.out.println("5. Quay lại");
-            System.out.print("Mời bạn nhập lựa chọn: ");
-            int choice = getChoice(scanner);
-            switch (choice) {
-                case 1:
-                    List<IdCard> idCards = idCardRepository.findAll();
-                    IdCard idCard = inputIdCard(scanner,idCards);
-                    idCards.add(idCard);
-                    idCardRepository.writeFileCards(idCards, false);
-                    System.out.println("Thêm mới thành công!");
-                    break;
-                case 2:
-                    idCards = idCardRepository.findAll();
-                    printCardsTable(idCards);
-                    break;
-                case 3:
-                    System.out.print("Nhập ID thẻ cần xóa: ");
-                    String id = scanner.nextLine();
-                    idCardRepository.remove(id);
-                    System.out.println("Xóa thành công!");
-                    break;
-                case 4:
-                    System.out.print("Nhập ID thẻ cần tìm: ");
-                    id = scanner.nextLine();
-                    idCard = idCardRepository.findIdCardById(id);
-                    if (idCard == null) {
-                        System.out.println("Không tìm thấy công dân với ID đã nhập!");
-                    } else {
-                        System.out.println(idCard);
-                    }
-                    break;
-                case 5:
-                    System.out.print("Cư dân cần nhập thông tin quan hệ: ");
-                    id = scanner.nextLine();
-                    idCard = idCardRepository.findIdCardById(id);
-                    if (idCard == null) {
-                        System.out.println("Không tìm thấy công dân với ID đã nhập!");
-                    } else {
-                        System.out.println(idCard);
-                        citizenRepository.addRelationships(id);
-                    }
-                    break;
-                case 6:
-                    return;
-                default:
-                    System.out.println("Người dùng nhập sai, vui lòng nhập lại");
-            }
-        }
-    }
+
     public static int getChoice(Scanner scanner) {
         int choice;
         while (true) {
@@ -189,18 +133,7 @@ public class Main {
         }
         System.out.println("+--------------------+----------------------+------------+----------------------+----------------------+---------------+-----------------------+-------------------+-------------------+---------------------+-------------------+-------------------+-------------------+");
     }
-    public static void printCardsTable(List<IdCard> idCards) {
-        System.out.println("+--------------------+----------------------+----------------------+");
-        System.out.println("| ID                 |    Ngày cấp          | Ngày hết hạn         |");
-        System.out.println("+--------------------+----------------------+----------------------+");
-        for (IdCard idCard : idCards) {
-            System.out.printf("| %-18s | %-15s | %-15s |\n",
-                    idCard.getIdCardDigits(),
-                    idCard.getNgayCap(),
-                    idCard.getNgayHetHan());
-        }
-        System.out.println("+--------------------+----------------------+----------------------+");
-    }
+
     public static Citizens inputCitizen(Scanner scanner, List<IdCard> idCardList) {
         System.out.print("Nhập tên đầy đủ: ");
         String fullName = scanner.nextLine();
@@ -282,6 +215,66 @@ public class Main {
             }
         }
     }
+
+    //CARD
+    public static void menuIdCard() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("---------Chương trình quản lý công dân------------");
+            System.out.println("1. Tạo thẻ định danh");
+            System.out.println("2. Hiển thị danh sách thẻ");
+            System.out.println("3. Xóa công dân");
+            System.out.println("4. Tìm kiếm thẻ định danh theo mã ID");
+            System.out.println("5. Quay lại");
+            System.out.print("Mời bạn nhập lựa chọn: ");
+            int choice = getChoice(scanner);
+            switch (choice) {
+                case 1:
+                    List<IdCard> idCards = idCardRepository.findAll();
+                    IdCard idCard = inputIdCard(scanner,idCards);
+                    idCards.add(idCard);
+                    idCardRepository.writeFileCards(idCards, false);
+                    System.out.println("Thêm mới thành công!");
+                    break;
+                case 2:
+                    idCards = idCardRepository.findAll();
+                    printCardsTable(idCards);
+                    break;
+                case 3:
+                    System.out.print("Nhập ID thẻ cần xóa: ");
+                    String id = scanner.nextLine();
+                    idCardRepository.remove(id);
+                    System.out.println("Xóa thành công!");
+                    break;
+                case 4:
+                    System.out.print("Nhập ID thẻ cần tìm: ");
+                    id = scanner.nextLine();
+                    idCard = idCardRepository.findIdCardById(id);
+                    if (idCard == null) {
+                        System.out.println("Không tìm thấy công dân với ID đã nhập!");
+                    } else {
+                        System.out.println(idCard);
+                    }
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Người dùng nhập sai, vui lòng nhập lại");
+            }
+        }
+    }
+    public static void printCardsTable(List<IdCard> idCards) {
+        System.out.println("+--------------------+----------------------+----------------------+");
+        System.out.println("| ID                 |    Ngày cấp          | Ngày hết hạn         |");
+        System.out.println("+--------------------+----------------------+----------------------+");
+        for (IdCard idCard : idCards) {
+            System.out.printf("| %-18s | %-15s | %-15s |\n",
+                    idCard.getIdCardDigits(),
+                    idCard.getNgayCap(),
+                    idCard.getNgayHetHan());
+        }
+        System.out.println("+--------------------+----------------------+----------------------+");
+    }
     public static IdCard inputIdCard(Scanner scanner,List<IdCard> idCardList) {
         System.out.print("Nhập mã định danh: ");
         String idCard = scanner.nextLine();
@@ -311,14 +304,5 @@ public class Main {
             }
         }
         return false; // ID chưa tồn tại
-    }
-    // Hàm kiểm tra xem ID card đã được liên kết với công dân chưa
-    private static boolean isCardLinkedWithCitizen(String idCardDigits, List<Citizens> citizensList) {
-        for (Citizens citizen : citizensList) {
-            if (citizen.getIdCard().getIdCardDigits().equals(idCardDigits)) {
-                return true; // Nếu tìm thấy công dân có ID card trùng khớp
-            }
-        }
-        return false; // Nếu không tìm thấy công dân nào có ID card trùng khớp
     }
 }

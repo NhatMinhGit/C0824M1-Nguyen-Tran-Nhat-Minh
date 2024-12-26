@@ -9,10 +9,55 @@ import enums.Religion;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class CitizenRepository {
+    private List<Citizens> parseCitizensList(String data, List<Citizens> allCitizens) {
+        // Ensure the data is valid
+        if (data == null || data.trim().isEmpty() || data.equalsIgnoreCase("null") || data.equalsIgnoreCase("Null")) {
+            return new ArrayList<>(); // Return an empty list if no valid data
+        }
+
+        List<Citizens> citizens = new ArrayList<>();
+
+        // Declare and initialize 'ids' inside the method
+        String[] ids = data.split(";");
+
+        // Iterate through the ids
+        for (String id : ids) {
+            id = id.trim(); // Trim spaces from the id
+            if (id.equalsIgnoreCase("Null") || id.isEmpty()) {
+                continue; // Skip invalid ids
+            }
+
+            // Find the citizen by id
+            Citizens citizen = findCitizenById(id, allCitizens);
+            if (citizen != null) {
+                citizens.add(citizen);
+            } else {
+                System.out.println("Could not find citizen with ID: " + id); // Debugging line
+            }
+        }
+        return citizens;
+    }
+
+
+
+    private Citizens findCitizenById(String id, List<Citizens> allCitizens) {
+        if (id == null || id.trim().isEmpty()) {
+            return null;
+        }
+        for (Citizens citizen : allCitizens) {
+            // Compare IDs with trimming spaces and ensure they match
+            if (citizen.getIdCard().getIdCardDigits().trim().equals(id.trim())) {
+                return citizen;
+            }
+        }
+        return null;
+    }
+
     public List<Citizens> findAll() {
         File file = new File("F:\\CodeGym\\MODULES\\module 2\\ss24_CaseStudy_QuanLyDinhDanh\\Casestudy\\src\\DATACITIZENS.csv");
         List<Citizens> citizens = new ArrayList<>();
@@ -21,12 +66,16 @@ public class CitizenRepository {
             String line;
             String[] temp;
             Citizens citizen;
-            while ((line = bufferedReader.readLine())!= null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(",");
-                List<Citizens> parents = parseCitizensList(temp[9]); // temp[9] là chuỗi ID cha mẹ
-                List<Citizens> children = parseCitizensList(temp[10]); // temp[10] là chuỗi ID con cái
-                Citizens spouse = parseCitizen(temp[11]); // temp[11] là ID vợ/chồng
-                // Giả sử mảng temp có các giá trị tương ứng
+
+                // Xử lý "Null" trong các trường cha mẹ và con cái
+                System.out.println("Parents data: " + temp[9]);
+                List<Citizens> parents = parseCitizensList(temp[9].equals("Null") ? "" : temp[9], citizens);
+                List<Citizens> children = parseCitizensList(temp[10].equals("Null") ? "" : temp[10], citizens);
+                Citizens spouse = temp[11].equals("Null") ? null : findCitizenById(temp[11].trim(), citizens);
+
+                // Tạo công dân từ thông tin đọc được
                 citizen = new Citizens(
                         temp[0],                      // fullName
                         LocalDate.parse(temp[1]),     // dob
@@ -37,10 +86,10 @@ public class CitizenRepository {
                         Region.valueOf(temp[6]),      // originHomeTown
                         temp[7],                      // currentLivePlace
                         temp[8],                      // permanentAddress
-                        parents,                         // parents (nếu có thể là null hoặc danh sách rỗng)
-                        children,                         // children (nếu có thể là null hoặc danh sách rỗng)
-                        spouse,                         // spouse (nếu có thể là null)
-                        new IdCard(temp[12])          // idCard (giả sử là chuỗi)
+                        parents,                      // parents
+                        children,                     // children
+                        spouse,                       // spouse
+                        new IdCard(temp[12])          // idCard
                 );
                 citizens.add(citizen);
             }
@@ -51,28 +100,6 @@ public class CitizenRepository {
         }
         return citizens;
     }
-    private List<Citizens> parseCitizensList(String data) {
-        if (data == null || data.trim().isEmpty() || data.equalsIgnoreCase("null") || data.equalsIgnoreCase("None")) {
-            return new ArrayList<>(); // Return empty list if no valid data
-        }
-
-        List<Citizens> citizens = new ArrayList<>();
-        String[] ids = data.split(","); // Assuming IDs are separated by commas
-
-        for (String id : ids) {
-            // Ignore "None" or invalid IDs
-            if (id.trim().equalsIgnoreCase("None")) {
-                continue;
-            }
-            Citizens citizen = findCitizenById(id.trim());
-            if (citizen != null) {
-                citizens.add(citizen); // Add the valid citizen
-            }
-        }
-        return citizens;
-    }
-
-
 
     public Citizens findCitizenById(String id) {
         if (id == null || id.trim().isEmpty()) {
@@ -99,13 +126,7 @@ public class CitizenRepository {
         }
         writeFileCitizens(citizens, false);
     }
-    private Citizens parseCitizen(String id) {
-        if (id == null || id.trim().isEmpty() || id.equalsIgnoreCase("null") || id.equalsIgnoreCase("None")) {
-            return null; // Return null if no valid ID is provided
-        }
-        // Trim the ID and find the citizen
-        return findCitizenById(id.trim());
-    }
+
     public void addRelationships(String citizenId) {
         Citizens citizen = findCitizenById(citizenId);
         if (citizen == null) {
@@ -122,32 +143,42 @@ public class CitizenRepository {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         scanner.nextLine(); // Xóa dòng thừa sau khi nhập số
-
+        List<Citizens> citizens = findAll(); // Lấy lại danh sách mới nhất chưa đưa vào
         switch (choice) {
             case 1:
                 System.out.print("Nhập ID cha/mẹ: ");
                 String parentId = scanner.nextLine();
-                Citizens parent = findCitizenById(parentId); // Tìm công dân bằng ID
+
+                // Tìm công dân bằng ID cha/mẹ
+                Citizens parent = findCitizenById(parentId);
                 if (parent == null) {
                     System.out.println("Không tìm thấy công dân với ID cha/mẹ đã nhập!");
                 } else {
-                    // Khởi tạo danh sách cha mẹ nếu chưa có
+                    // Khởi tạo danh sách cha mẹ cho citizen nếu chưa có
                     List<Citizens> parents = citizen.getParents();
                     if (parents == null) {
                         parents = new ArrayList<>();
                     }
-                    parents.add(parent); // Thêm cha mẹ vào danh sách
-                    citizen.setParents(parents); // Cập nhật danh sách cha mẹ cho công dân
 
-                    // Nếu cần, cũng có thể thêm công dân này vào danh sách con của cha mẹ
+                    // Kiểm tra xem parent đã tồn tại trong danh sách cha mẹ chưa
+                    if (!parents.contains(parent)) {
+                        parents.add(parent); // Thêm cha/mẹ vào danh sách cha mẹ
+                        citizen.setParents(parents); // Cập nhật danh sách cha mẹ cho citizen
+                    }
+
+                    // Khởi tạo danh sách con cho parent nếu chưa có
                     List<Citizens> children = parent.getChildren();
                     if (children == null) {
                         children = new ArrayList<>();
                     }
-                    children.add(citizen);
-                    parent.setChildren(children); // Cập nhật danh sách con cho cha mẹ
 
-                    System.out.println("Quan hệ cha mẹ -> con cái đã được thêm.");
+                    // Kiểm tra xem citizen đã tồn tại trong danh sách con của parent chưa
+                    if (!children.contains(citizen)) {
+                        children.add(citizen); // Thêm công dân vào danh sách con
+                        parent.setChildren(children); // Cập nhật danh sách con cho parent
+                    }
+                    updateParentsAndChildrenCitizens(citizen,citizens);
+                    System.out.println("Quan hệ cha mẹ -> con cái đã được thêm thành công.");
                 }
                 break;
 
@@ -160,6 +191,7 @@ public class CitizenRepository {
                 } else {
                     citizen.setSpouse(spouse);
                     spouse.setSpouse(citizen); // Cập nhật vợ/chồng ở cả hai phía
+                    updateSpouseCitizens(citizen,citizens);
                     System.out.println("Quan hệ vợ chồng đã được thêm.");
                 }
                 break;
@@ -169,13 +201,39 @@ public class CitizenRepository {
         }
 
         // Lưu lại các thay đổi vào danh sách công dân và file
-        List<Citizens> citizens = findAll(); // Lấy lại danh sách mới nhất
         writeFileCitizens(citizens, false); // Cập nhật danh sách vào file
         System.out.println("Cập nhật danh sách vào file thành công!");
     }
 
+    public boolean updateSpouseCitizens(Citizens ctzNewInfor,List<Citizens> list) {
 
+        Citizens temp = list
+                .stream()
+                .filter(bn -> bn.getIdCard().getIdCardDigits().equalsIgnoreCase(ctzNewInfor.getIdCard().getIdCardDigits()))
+                .findFirst()
+                .orElse(null);
 
+        if(temp == null)
+            return false;
+
+        temp.setSpouse(ctzNewInfor.getSpouse());
+        return true;
+    }
+    public boolean updateParentsAndChildrenCitizens(Citizens ctzNewInfor,List<Citizens> list) {
+
+        Citizens temp = list
+                .stream()
+                .filter(bn -> bn.getIdCard().getIdCardDigits().equalsIgnoreCase(ctzNewInfor.getIdCard().getIdCardDigits()))
+                .findFirst()
+                .orElse(null);
+
+        if(temp == null)
+            return false;
+
+        temp.setParents(ctzNewInfor.getParents());
+        temp.setChildren(ctzNewInfor.getChildren());
+        return true;
+    }
     private String citizenToString(Citizens citizens) {
         return citizens.getFullName() + "," + citizens.getDob() + "," +
                 citizens.getPhone() + "," + citizens.getReligion() + "," +
@@ -183,21 +241,21 @@ public class CitizenRepository {
                 citizens.getOriginHomeTown() + "," + citizens.getCurrentLivePlace() + "," +
                 citizens.getPermanentAddress() + "," + listToString(citizens.getParents()) + "," +
                 listToString(citizens.getChildren()) + "," +
-                (citizens.getSpouse() != null ? citizens.getSpouse().getIdCard().getIdCardDigits() : "None") + "," +
+                (citizens.getSpouse() != null ? citizens.getSpouse().getIdCard().getIdCardDigits() : "Null") + "," +
                 citizens.getIdCard().getIdCardDigits();
     }
 
     private String listToString(List<Citizens> list) {
         if (list == null || list.isEmpty()) {
-            return "None"; // Giá trị mặc định nếu danh sách rỗng
+            return "Null"; // Giá trị mặc định nếu danh sách rỗng
         }
         return list.stream()
                 .map(citizen -> {
                     String id = citizen.getIdCard().getIdCardDigits();
-                    return (id != null) ? id : "None";
+                    return (id != null) ? id : "Null";
                 })
                 .reduce((a, b) -> a + ";" + b) // Gộp các ID lại bằng dấu ";"
-                .orElse("None");
+                .orElse("Null");
     }
 
 

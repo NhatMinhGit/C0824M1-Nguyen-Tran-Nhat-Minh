@@ -7,18 +7,19 @@ import enums.Religion;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Citizens {
 
     private String fullName;
-    private LocalDate dob;
+    private LocalDate dob;// *
     private String phone;
     private Religion religion;//Tôn giáo
-    private Nationality nationality;//Quốc tịch
-    private Region registeredBornPlace;//Nơi đăng ký khai sinh
-    private Region originHomeTown;//Quê quán
-    private String currentLivePlace;//Nơi ở hiện tại
-    private String permanentAddress;//Thường trú
+    private Nationality nationality;//Quốc tịch *
+    private Region registeredBornPlace;//Nơi đăng ký khai sinh *
+    private Region originHomeTown;//Quê quán *
+    private String currentLivePlace;//Nơi ở hiện tại *
+    private String permanentAddress;//Thường trú *
     private List<Citizens> parents = new ArrayList<>();
     private List<Citizens> children = new ArrayList<>();
     private Citizens spouse;
