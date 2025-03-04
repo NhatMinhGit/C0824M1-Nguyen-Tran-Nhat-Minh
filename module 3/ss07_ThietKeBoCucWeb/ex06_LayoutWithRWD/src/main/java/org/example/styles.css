@@ -1,0 +1,108 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+    background: #444;
+    border-radius: 5px;
+}
+
+.login {
+    cursor: pointer;
+}
+
+/* Bố cục chính */
+.container {
+    display: flex;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* Sidebar trái */
+.sidebar-left {
+    width: 15%;
+    background: #e4e4e4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-left a {
+    text-decoration: none;
+    color: blue;
+    margin-bottom: 10px;
+}
+
+/* Nội dung chính */
+.content {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    margin: 0 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar phải (Quảng cáo) */
+.sidebar-right {
+    width: 15%;
+    background: #e4e4e4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ad-box {
+    width: 100px;
+    height: 80px;
+    background: white;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background: #444;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
