@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Từ điển Anh - Việt</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h2>Từ điển Anh - Việt</h2>
+<form action="/search" method="get">
+    <input type="text" name="word" placeholder="Nhập từ cần tra..." required>
+    <button type="submit">Tra cứu</button>
+</form>
+
+<h3 th:if="${word}">
+    Từ "<span th:text="${word}"></span>" có nghĩa là:
+    <span th:text="${meaning}"></span>
+</h3>
+</body>
+</html>
