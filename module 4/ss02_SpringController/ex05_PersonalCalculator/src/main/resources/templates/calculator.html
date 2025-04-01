@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/calculate" method="post">
+    <input type="number" name="number1" placeholder="Enter first number" required>
+    <input type="number" name="number2" placeholder="Enter second number" required>
+    <br><br>
+    <button type="submit" name="operator" value="plus">Addition(+)</button>
+    <button type="submit" name="operator" value="minus">Subtraction(-)</button>
+    <button type="submit" name="operator" value="multiply">Multiplication(x)</button>
+    <button type="submit" name="operator" value="divide">Division(/)</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đơn Hàng Của Bạn</title>
+</head>
+<body>
+<h2>Đơn Hàng Sandwich Của Bạn</h2>
+<p th:if="${selectedCondiments.empty}">Bạn chưa chọn loại gia vị nào!</p>
+<p th:unless="${selectedCondiments.empty}">Bạn đã chọn: <span th:text="${#strings.arrayJoin(selectedCondiments, ', ')}"></span></p>
+
+<a href="/sandwich">Chọn lại</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border: 1px solid #000;
+    }
+
+    th, td {
+        border: 1px dotted #555;
+    }
+</style>
+<body>
+
+<p>There are <span th:text="${customers.size()}"></span> customer(s) in list.</p>
+
+<table>
+    <caption>Customers List</caption>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${customers}">
+        <td th:text="${c.id}"></td>
+        <td><a th:href="@{/info(id=${c.id})}" th:text="${c.name}"></a></td>
+        <td th:text="${c.email}"></td>
+        <td th:text="${c.address}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
