@@ -22,18 +22,28 @@ public class CustomerController {
     public String index(Model model) {
         List<Customer> customerList = customerService.findAll();
         model.addAttribute("customers", customerList);
-        return "/index";
+        return "fragments/index";
     }
     @GetMapping("/{id}/view")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
-        return "/view";
+        return "fragments/view";
+    }
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable int id, Model model) {
+        model.addAttribute("customer", customerService.findById(id));
+        return "fragments/delete";
     }
     @PostMapping("/delete")
     public String delete(Customer customer, RedirectAttributes redirect) {
         customerService.remove(customer.getId());
         redirect.addFlashAttribute("success", "Removed customer successfully!");
         return "redirect:/customers";
+    }
+    @GetMapping("/{id}/edit")
+    public String update(@PathVariable int id, Model model) {
+        model.addAttribute("customer", customerService.findById(id));
+        return "fragments/update";
     }
     @PostMapping("/update")
     public String update(Customer customer) {
@@ -43,6 +53,12 @@ public class CustomerController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("customer", new Customer());
-        return "/create";
+        return "fragments/create";
+    }
+    @PostMapping("/save")
+    public String save(Customer customer) {
+        customer.setId((int) (Math.random() * 10000));
+        customerService.save(customer);
+        return "redirect:/customers";
     }
 }
